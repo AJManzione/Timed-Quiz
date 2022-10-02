@@ -3,6 +3,7 @@ var questionTwo = document.getElementById("question-two").style.visibility = 'hi
 var questionThree = document.getElementById("question-three").style.visibility = 'hidden'
 var questionFour = document.getElementById("question-four").style.visibility = 'hidden'
 var questionFive = document.getElementById("question-five").style.visibility = 'hidden'
+var score = document.getElementById("save").style.visibility = 'hidden'
 
 
 var timerEl = document.getElementById("time");
@@ -15,12 +16,12 @@ startBtn.addEventListener("click", questionDisplay);
 startBtn.addEventListener("click", countDown);
 
 
-var right = document.querySelector(".right");
+var right1 = document.querySelector(".right-1");
 var right2 = document.querySelector(".right-2");
 var right3 = document.querySelector(".right-3");
 var right4 = document.querySelector(".right-4");
 var right5 = document.querySelector(".right-5");
-var wrong = document.querySelector(".wrong");
+var wrong1 = document.querySelector(".wrong-1");
 var wrong2 = document.querySelector(".wrong-2");
 var wrong3 = document.querySelector(".wrong-3");
 var wrong4 = document.querySelector(".wrong-4");
@@ -38,6 +39,10 @@ var wrong15 = document.querySelector(".wrong-15");
 var rightDisplay = document.querySelector("#right-display"); 
 var wrongDisplay = document.querySelector("#wrong-display");
 
+var email = document.querySelector("save").value;
+
+// Displays most current user score -----------------------
+
 function setCounterWrongText() {
   wrongDisplay.textContent = wCount;
 }
@@ -45,10 +50,12 @@ function setCounterWrongText() {
 function setCounterRightText() {
   rightDisplay.textContent = rCount;
 }
-function questionThreeDisplay() {
 
-}
 
+
+
+
+// updates the global variable of user score ---------------------
 
 function userAnswerRight () { 
     rCount = rCount + 1;
@@ -70,26 +77,36 @@ function userAnswerWrong () {
     right5.addEventListener("click", function(e) {
       userAnswerRight();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
+      score = document.getElementById("save").style.visibility = 'visible'
+
     });
 
     wrong13.addEventListener("click", function(e) {
       userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
+      score = document.getElementById("save").style.visibility = 'visible'
     });
 
     wrong14.addEventListener("click", function(e) {
       userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
+      score = document.getElementById("save").style.visibility = 'visible'
     });
 
     wrong15.addEventListener("click", function(e) {
       userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
+      score = document.getElementById("save").style.visibility = 'visible'
     });
+
+    if (score === "") {
+      displayMessage("error", "must input initials");
+    } else {
+      displayMessage("success", "Registered successfully");
+    };
+
+
   };
-
-
-
 
 
 
@@ -197,17 +214,18 @@ function userAnswerWrong () {
 //------------------Question One--------------------------//
 
 function questionDisplay() {
+  startBtn.style.visibility = 'hidden' // hide start button so time cant be reset
   
   questionOne = document.getElementById("question-one").style.visibility = 'visible'
 
-  right.addEventListener("click", function(e) {
+  right1.addEventListener("click", function(e) {
     questionOne = document.getElementById("question-one").style.visibility = 'hidden'
     userAnswerRight();
     questionTwoDisplay();
   
   });
 
-  wrong.addEventListener("click", function(e) {
+  wrong1.addEventListener("click", function(e) {
     questionOne = document.getElementById("question-one").style.visibility = 'hidden'
     userAnswerWrong();
     questionTwoDisplay();

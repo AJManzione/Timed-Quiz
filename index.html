@@ -4,28 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/script.js">
+    <link rel="stylesheet" href="/assets/style.css">
     <title>Timed Quiz</title>
 </head>
 <body>
     
-    <div>
+
+
+    <div id="starting">
         <div id="clock">Time left: <span id="time"></span></div>
-        <button id ="start">Start</button>
+    </div>
+
+    <div class="btnContainer">
+    <button id ="start">Start</button>  
+    </div>
+
+
+    <div id="info">
         <h2>Correct: <span id="right-display"></span></h2>
         <h2>Wrong: <span id="wrong-display"></span></h2>
     </div>
 
-    <div>
 
-    </div>
+
 
     <div id="question-one">
         <h1>Question 1</h1>
         <p>What is the biggest city in the United States by population</p>
-        <button class="wrong">Los Angelas</button>
+        <button class="wrong-1">Los Angelas</button>
         <button class="wrong-2">New York</button>
-        <button class="right">San Fransisco</button>
+        <button class="right-1">San Fransisco</button>
         <button class="wrong-3">Dallas</button>
     </div>
 
@@ -63,6 +71,14 @@
         <button class="wrong-14">Three</button>
         <button class="right-5">Two</button>
         <button class="wrong-15">Three</button>
+    </div>
+
+    <div id="save">
+        <form>
+            <label for="initials">Enter initials to save score!</label>
+        </br>
+            <input type="text" id="initials" name="initials">
+        </form>
     </div>
 
 

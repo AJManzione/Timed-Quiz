@@ -4,6 +4,7 @@ var questionThree = document.getElementById("question-three").style.visibility =
 var questionFour = document.getElementById("question-four").style.visibility = 'hidden'
 var questionFive = document.getElementById("question-five").style.visibility = 'hidden'
 var stats = document.getElementById("stats").style.visibility = 'hidden'
+var liveStats = document.getElementById("live-stats").style.visibility = 'hidden'
 
 
 var timerEl = document.getElementById("time");
@@ -172,18 +173,21 @@ function userAnswerWrong () {
       userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
       stats = document.getElementById("stats").style.visibility = 'visible'
+      liveStats = document.getElementById("live-stats").style.visibility = 'hidden'
     });
 
     wrong14.addEventListener("click", function(e) {
       userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
       stats = document.getElementById("stats").style.visibility = 'visible'
+      liveStats = document.getElementById("live-stats").style.visibility = 'hidden'
     });
 
     wrong15.addEventListener("click", function(e) {
       userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
       stats = document.getElementById("stats").style.visibility = 'visible'
+      liveStats = document.getElementById("live-stats").style.visibility = 'hidden'
     });
 
     
@@ -297,6 +301,7 @@ function userAnswerWrong () {
 
 function questionDisplay() {
   startBtn.style.visibility = 'hidden' // hide start button so time cant be reset
+  liveStats = document.getElementById("live-stats").style.visibility = 'visible'
   
   questionOne = document.getElementById("question-one").style.visibility = 'visible'
 

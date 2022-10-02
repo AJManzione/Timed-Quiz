@@ -6,9 +6,10 @@ var questionFive = document.getElementById("question-five").style.visibility = '
 var stats = document.getElementById("stats").style.visibility = 'hidden'
 var liveStats = document.getElementById("live-stats").style.visibility = 'hidden'
 
-
+var intro = document.getElementById("btnContainer")
 var timerEl = document.getElementById("time");
 var startBtn = document.getElementById("start");
+
 
 var rCount = 0;
 var wCount = 0;
@@ -300,6 +301,7 @@ function userAnswerWrong () {
 //------------------Question One--------------------------//
 
 function questionDisplay() {
+  intro.style.visibility = 'hidden'
   startBtn.style.visibility = 'hidden' // hide start button so time cant be reset
   liveStats = document.getElementById("live-stats").style.visibility = 'visible'
   

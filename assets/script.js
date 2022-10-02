@@ -3,7 +3,7 @@ var questionTwo = document.getElementById("question-two").style.visibility = 'hi
 var questionThree = document.getElementById("question-three").style.visibility = 'hidden'
 var questionFour = document.getElementById("question-four").style.visibility = 'hidden'
 var questionFive = document.getElementById("question-five").style.visibility = 'hidden'
-var score = document.getElementById("save").style.visibility = 'hidden'
+var stats = document.getElementById("stats").style.visibility = 'hidden'
 
 
 var timerEl = document.getElementById("time");
@@ -39,7 +39,65 @@ var wrong15 = document.querySelector(".wrong-15");
 var rightDisplay = document.querySelector("#right-display"); 
 var wrongDisplay = document.querySelector("#wrong-display");
 
-var email = document.querySelector("save").value;
+
+
+
+
+
+
+var emailInput = document.querySelector("#email");
+var signUpButton = document.querySelector("#sign-up");
+var msgDiv = document.querySelector("#msg");
+var userEmailSpan = document.querySelector("#user-email");
+
+
+
+renderLastRegistered();
+
+function displayMessage(type, message) {
+  msgDiv.textContent = message;
+  msgDiv.setAttribute("class", type);
+}
+
+
+function renderLastRegistered() {
+  var email = localStorage.getItem("email");
+  if (!email) {
+    return;
+  }
+  userEmailSpan.textContent = email;
+}
+
+signUpButton.addEventListener("click", function(event) {
+  event.preventDefault();
+
+  var email = document.querySelector("#email").value;
+
+  if (email === "") {
+    displayMessage("error", "Email cannot be blank");
+  } else {
+    displayMessage("success", "Registered successfully");
+     userEmailSpan.textContent = email;
+
+    localStorage.setItem("email", email);
+    renderLastRegistered();
+    
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Displays most current user score -----------------------
 
@@ -50,6 +108,35 @@ function setCounterWrongText() {
 function setCounterRightText() {
   rightDisplay.textContent = rCount;
 }
+
+
+
+
+
+
+signUpButton.addEventListener("click", function(event) {
+  event.preventDefault();
+
+  var email = document.querySelector("#email").value;
+  var password = document.querySelector("#password").value;
+
+  if (email === "") {
+    displayMessage("error", "Email cannot be blank");
+  } else if (password === "") {
+    displayMessage("error", "Password cannot be blank");
+  } else {
+    displayMessage("success", "Registered successfully");
+    // userEmailSpan.textContent = email;
+    // userPasswordSpan.textContent = password;
+
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+    renderLastRegistered();
+    
+  }
+});
+
+
 
 
 
@@ -77,34 +164,29 @@ function userAnswerWrong () {
     right5.addEventListener("click", function(e) {
       userAnswerRight();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
-      score = document.getElementById("save").style.visibility = 'visible'
+      stats = document.getElementById("stats").style.visibility = 'visible'
 
     });
 
     wrong13.addEventListener("click", function(e) {
       userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
-      score = document.getElementById("save").style.visibility = 'visible'
+      stats = document.getElementById("stats").style.visibility = 'visible'
     });
 
     wrong14.addEventListener("click", function(e) {
       userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
-      score = document.getElementById("save").style.visibility = 'visible'
+      stats = document.getElementById("stats").style.visibility = 'visible'
     });
 
     wrong15.addEventListener("click", function(e) {
       userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
-      score = document.getElementById("save").style.visibility = 'visible'
+      stats = document.getElementById("stats").style.visibility = 'visible'
     });
 
-    if (score === "") {
-      displayMessage("error", "must input initials");
-    } else {
-      displayMessage("success", "Registered successfully");
-    };
-
+    
 
   };
 
@@ -261,7 +343,8 @@ function questionDisplay() {
 
 //Timer function starts after user presses "start" button
 function countDown() {
-    timeLeft = 100;
+  alert("You will have 45 seconds to complete the quiz, \n press okay when you are ready")
+    timeLeft = 44;
   var timeInterval = setInterval(function () {
 
     if (timeLeft > 0) {

@@ -25,7 +25,7 @@
         <h2>Wrong: <span id="wrong-display"></span></h2>
     </div>
 
-
+    <div id="msg"></div>
 
 
     <div id="question-one">
@@ -73,13 +73,43 @@
         <button class="wrong-15">Three</button>
     </div>
 
-    <div id="save">
-        <form>
-            <label for="initials">Enter initials to save score!</label>
-        </br>
-            <input type="text" id="initials" name="initials">
-        </form>
-    </div>
+
+<div id="stats">
+    <div class="clearfix">
+        <div class="card">
+          <h2>Save Your Initials and Score!</h2>
+          <form method="POST">
+            <div class="input-group">
+              <label for="email">Initials:</label>
+              <input type="text" name="email" id="email" placeholder="J.S" />
+            </div>
+            </div>
+            <div id="msg"></div>
+            <button id="sign-up">Save</button>
+          </form>
+        </div>
+        <div class="card">
+          <h2>Test Scores:</h2>
+          <p><strong>Initials:</strong> <span id="user-email"></span></p>
+          <p><strong>Correct:</strong> <span id="user-correct"></span></p>
+          <p><strong>Incorrect:</strong> <span id="user-incorrect"></span></p>
+        </div>
+      </div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <script src="/assets/script.js"></script>

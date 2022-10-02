@@ -73,8 +73,6 @@ input:hover {
   border-radius: 8px;
   box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
     rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
-  margin: 2%;
-  margin-top: 80px;
   padding: 20px;
   width: 46%;
   overflow: hidden;
@@ -95,10 +93,11 @@ input:hover {
 }
 
 #msg {
+  margin-left: 300px;
   visibility: hidden;
-  margin-top: 20px;
   font-weight: 700;
-  height: 1.2em;
+  height: 18px;
+  width: 250px;
   font-size: 1.2em;
 }
 
@@ -117,6 +116,7 @@ input:hover {
 
 
 #question-one {
+    margin-top: -400px;
     height: 300px;
     display: flex;
     text-align: center;
@@ -126,6 +126,7 @@ input:hover {
 
 
 #question-one p {
+
     padding: 5px 300px 0 300px;
     font-size: 26px;
 }
@@ -137,11 +138,128 @@ input:hover {
 }
 
 #question-one button {
-    height: 80px;
-    width: 200px;
+    height: 60px;
+    width: 1500px;
     display: inline-block;
     padding: 0%;
 }
+
+
+#question-two {
+    margin-top: -300px;
+    height: 300px;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#question-two p {
+
+    padding: 5px 300px 0 300px;
+    font-size: 26px;
+}
+
+#question-two h2 {
+    font-size: 40px;
+    margin-left: 25px;
+    padding:0px 200px 10px 200px;
+}
+
+#question-two button {
+    height: 60px;
+    width: 1500px;
+    display: inline-block;
+    padding: 0%;
+}
+
+
+#question-three {
+    margin-top: -300px;
+    height: 300px;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#question-three p {
+
+    padding: 5px 300px 0 300px;
+    font-size: 26px;
+}
+
+#question-three h2 {
+    font-size: 40px;
+    margin-left: 25px;
+    padding:0px 200px 10px 200px;
+}
+
+#question-three button {
+    height: 60px;
+    width: 1500px;
+    display: inline-block;
+    padding: 0%;
+}
+
+
+#question-four {
+    margin-top: -300px;
+    height: 300px;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#question-four p {
+
+    padding: 5px 400px 0 400px;
+    font-size: 26px;
+}
+
+#question-four h2 {
+    font-size: 40px;
+    margin-left: 25px;
+    padding:0px 200px 10px 200px;
+}
+
+#question-four button {
+    height: 60px;
+    width: 1500px;
+    display: inline-block;
+    padding: 0%;
+}
+
+#question-five {
+    margin-top: -300px;
+    height: 300px;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#question-five p {
+
+    padding: 5px 400px 0 400px;
+    font-size: 26px;
+}
+
+#question-five h2 {
+    font-size: 40px;
+    margin-left: 25px;
+    padding:0px 200px 10px 200px;
+}
+
+#question-five button {
+    height: 60px;
+    width: 1500px;
+    display: inline-block;
+    padding: 0%;
+}
+
+
 
 #btnContainer {
     display: flex;
@@ -155,4 +273,33 @@ input:hover {
 h1 {
     padding:50px 0px 0 0px;
     text-align: center;
+}
+
+#clock {
+    font-size: 28px;
+    margin-top: -300px;
+    margin-bottom: 300px;
+    text-align: center;
+}
+
+#stats {
+    margin-left: 40px;
+    margin-top: -500px;
+    margin-bottom: 50px;
+}
+
+#saved-stats {
+    margin-top: -30px;
+    margin-left: 40px;
+
+}
+
+#sign-up {
+    padding: 0%;
+    text-align: center;
+    height: 30px;
+    width: 60px;
+    font-size: 20px;
+    margin-right: 1200px;
+    margin-top: 20px;
 }

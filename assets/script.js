@@ -4,8 +4,8 @@ var questionThree = document.getElementById("question-three").style.visibility =
 var questionFour = document.getElementById("question-four").style.visibility = 'hidden'
 var questionFive = document.getElementById("question-five").style.visibility = 'hidden'
 var stats = document.getElementById("stats").style.visibility = 'hidden'
-var liveStats = document.getElementById("live-stats").style.visibility = 'hidden'
-
+var savedStats = document.getElementById("saved-stats").style.visibility = 'hidden'
+var info = document.getElementById("info").style.visibility = 'hidden'
 var intro = document.getElementById("btnContainer")
 var timerEl = document.getElementById("time");
 var startBtn = document.getElementById("start");
@@ -46,54 +46,31 @@ var wrongDisplay = document.querySelector("#wrong-display");
 
 
 
-
-var emailInput = document.querySelector("#email");
-var signUpButton = document.querySelector("#sign-up");
+var signUpButton = document.querySelector("#sign-up")
+var userInput = document.querySelector("#email");
 var msgDiv = document.querySelector("#msg");
 var userEmailSpan = document.querySelector("#user-email");
+var userCorrect = document.querySelector("#user-correct");
+var userIncorrect = document.querySelector("#user-incorrect");
 
 
 
 renderLastRegistered();
-
 function displayMessage(type, message) {
   msgDiv.textContent = message;
   msgDiv.setAttribute("class", type);
+  savedStats = document.getElementById("saved-stats").style.visibility = 'visible'
 }
 
 
 function renderLastRegistered() {
-  var email = localStorage.getItem("email");
-  if (!email) {
+  var initials = localStorage.getItem("initials");
+  if (!initials) {
     return;
   }
-  userEmailSpan.textContent = email;
+  userEmailSpan.textContent = initials;
+
 }
-
-signUpButton.addEventListener("click", function(event) {
-  event.preventDefault();
-
-  var email = document.querySelector("#email").value;
-
-  if (email === "") {
-    displayMessage("error", "Email cannot be blank");
-  } else {
-    displayMessage("success", "Registered successfully");
-     userEmailSpan.textContent = email;
-
-    localStorage.setItem("email", email);
-    renderLastRegistered();
-    
-  }
-});
-
-
-
-
-
-
-
-
 
 
 
@@ -102,14 +79,16 @@ signUpButton.addEventListener("click", function(event) {
 
 
 // Displays most current user score -----------------------
+function setCounterRightText() {
+  userCorrect.textContent = correct;
+  localStorage.setItem("correct", correct)
+}
 
 function setCounterWrongText() {
-  wrongDisplay.textContent = wCount;
+  userIncorrect.textContent = incorrect;
+  localStorage.setItem("incorrect", incorrect)
 }
 
-function setCounterRightText() {
-  rightDisplay.textContent = rCount;
-}
 
 
 
@@ -119,25 +98,25 @@ function setCounterRightText() {
 signUpButton.addEventListener("click", function(event) {
   event.preventDefault();
 
-  var email = document.querySelector("#email").value;
-  var password = document.querySelector("#password").value;
+  var initials = document.querySelector("#email").value;
 
-  if (email === "") {
-    displayMessage("error", "Email cannot be blank");
-  } else if (password === "") {
-    displayMessage("error", "Password cannot be blank");
+  if (initials === "") {
+    displayMessage("error", "Initials cannot be blank");
   } else {
     displayMessage("success", "Registered successfully");
-    // userEmailSpan.textContent = email;
-    // userPasswordSpan.textContent = password;
-
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", password);
+    stats = document.getElementById("stats").style.visibility = 'hidden'
+     userEmailSpan.textContent = initials;
+     userCorrect.textContent = correct;
+     userIncorrect.textContent = incorrect;
+     localStorage.setItem("email", initials);
+    
+    setCounterRightText();
+    setCounterWrongText();
     renderLastRegistered();
+
     
   }
 });
-
 
 
 
@@ -147,13 +126,11 @@ signUpButton.addEventListener("click", function(event) {
 // updates the global variable of user score ---------------------
 
 function userAnswerRight () { 
-    rCount = rCount + 1;
-    setCounterRightText();
+    rCount = rCount + 1; 
   };
 
 function userAnswerWrong () {
     wCount = wCount + 1;
-    setCounterWrongText();
   };
 
 
@@ -163,29 +140,29 @@ function userAnswerWrong () {
 
   function questionFiveDisplay() {
     questionFive = document.getElementById("question-five").style.visibility = 'visible'
-    right5.addEventListener("click", function(e) {
-      userAnswerRight();
+      right5.addEventListener("click", function(e) {
+        userAnswerRight();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
       stats = document.getElementById("stats").style.visibility = 'visible'
 
     });
 
     wrong13.addEventListener("click", function(e) {
-      userAnswerWrong();
+        userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
       stats = document.getElementById("stats").style.visibility = 'visible'
       liveStats = document.getElementById("live-stats").style.visibility = 'hidden'
     });
 
     wrong14.addEventListener("click", function(e) {
-      userAnswerWrong();
+        userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
       stats = document.getElementById("stats").style.visibility = 'visible'
       liveStats = document.getElementById("live-stats").style.visibility = 'hidden'
     });
 
     wrong15.addEventListener("click", function(e) {
-      userAnswerWrong();
+        userAnswerWrong();
       questionFive = document.getElementById("question-five").style.visibility = 'hidden'
       stats = document.getElementById("stats").style.visibility = 'visible'
       liveStats = document.getElementById("live-stats").style.visibility = 'hidden'

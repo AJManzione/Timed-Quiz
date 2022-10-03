@@ -63,6 +63,8 @@ function displayMessage(type, message) {
 
 function renderLastRegistered() {
   var initials = localStorage.getItem("initials");
+  var correct = localStorage.getItem("correct")
+  var incorrect = localStorage.getItem("incorrect")
   if (!initials) {
     return;
   }
@@ -78,16 +80,6 @@ function renderLastRegistered() {
 
 
 
-// Displays most current user score -----------------------
-function setCounterRightText() {
-  
-  localStorage.setItem("correct", correct)
-}
-
-function setCounterWrongText() {
-  
-  localStorage.setItem("incorrect", incorrect)
-}
 
 
 
@@ -106,14 +98,13 @@ signUpButton.addEventListener("click", function(event) {
     displayMessage("success", "Registered successfully");
     stats = document.getElementById("stats").style.visibility = 'hidden'
      userEmailSpan.textContent = initials;
-     userCorrect.textContent = correct;
-     userIncorrect.textContent = incorrect;
+     userCorrect.textContent = rCount;
+     userIncorrect.textContent = wCount;
      localStorage.setItem("email", initials);
      localStorage.setItem("correct", correct)
      localStorage.setItem("incorrect", incorrect)
     
-    setCounterRightText();
-    setCounterWrongText();
+
     renderLastRegistered();
 
     
@@ -144,9 +135,6 @@ function endGame() {
   questionFive = document.getElementById("question-five").style.visibility = 'hidden'
   displayClock = document.getElementById("live-stats").style.visibility = 'hidden' 
 };
-
-
-
 
 
 

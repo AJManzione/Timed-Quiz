@@ -93,6 +93,7 @@ input:hover {
 }
 
 #msg {
+
   margin-left: 300px;
   visibility: hidden;
   font-weight: 700;
@@ -116,7 +117,7 @@ input:hover {
 
 
 #question-one {
-    margin-top: -400px;
+    margin-top: -150px;
     height: 300px;
     display: flex;
     text-align: center;

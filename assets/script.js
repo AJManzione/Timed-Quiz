@@ -5,7 +5,7 @@ var questionFour = document.getElementById("question-four").style.visibility = '
 var questionFive = document.getElementById("question-five").style.visibility = 'hidden'
 var stats = document.getElementById("stats").style.visibility = 'hidden'
 var savedStats = document.getElementById("saved-stats").style.visibility = 'hidden'
-var info = document.getElementById("info").style.visibility = 'hidden'
+var displayClock = document.getElementById("live-stats").style.visibility = 'hidden'
 var intro = document.getElementById("btnContainer")
 var timerEl = document.getElementById("time");
 var startBtn = document.getElementById("start");
@@ -43,17 +43,15 @@ var wrongDisplay = document.querySelector("#wrong-display");
 
 
 
-
-
-
 var signUpButton = document.querySelector("#sign-up")
 var userInput = document.querySelector("#email");
 var msgDiv = document.querySelector("#msg");
-var userEmailSpan = document.querySelector("#user-email");
+var userEmailSpan = document.querySelector("#user-initials");
 var userCorrect = document.querySelector("#user-correct");
 var userIncorrect = document.querySelector("#user-incorrect");
 
 
+console.log(window);
 
 renderLastRegistered();
 function displayMessage(type, message) {
@@ -69,6 +67,8 @@ function renderLastRegistered() {
     return;
   }
   userEmailSpan.textContent = initials;
+  userCorrect.textContent = correct;
+  userIncorrect.textContent = incorrect;
 
 }
 
@@ -80,12 +80,12 @@ function renderLastRegistered() {
 
 // Displays most current user score -----------------------
 function setCounterRightText() {
-  userCorrect.textContent = correct;
+  
   localStorage.setItem("correct", correct)
 }
 
 function setCounterWrongText() {
-  userIncorrect.textContent = incorrect;
+  
   localStorage.setItem("incorrect", incorrect)
 }
 
@@ -109,6 +109,8 @@ signUpButton.addEventListener("click", function(event) {
      userCorrect.textContent = correct;
      userIncorrect.textContent = incorrect;
      localStorage.setItem("email", initials);
+     localStorage.setItem("correct", correct)
+     localStorage.setItem("incorrect", incorrect)
     
     setCounterRightText();
     setCounterWrongText();
@@ -131,7 +133,21 @@ function userAnswerRight () {
 
 function userAnswerWrong () {
     wCount = wCount + 1;
+    timeLeft = timeLeft - 5;
   };
+
+
+
+
+function endGame() {
+  stats = document.getElementById("stats").style.visibility = 'visible'
+  questionFive = document.getElementById("question-five").style.visibility = 'hidden'
+  displayClock = document.getElementById("live-stats").style.visibility = 'hidden' 
+};
+
+
+
+
 
 
 
@@ -142,30 +158,28 @@ function userAnswerWrong () {
     questionFive = document.getElementById("question-five").style.visibility = 'visible'
       right5.addEventListener("click", function(e) {
         userAnswerRight();
-      questionFive = document.getElementById("question-five").style.visibility = 'hidden'
-      stats = document.getElementById("stats").style.visibility = 'visible'
-
+        endGame();
+        /* endGame(); */
+        //local storage time value
     });
 
     wrong13.addEventListener("click", function(e) {
         userAnswerWrong();
-      questionFive = document.getElementById("question-five").style.visibility = 'hidden'
-      stats = document.getElementById("stats").style.visibility = 'visible'
-      liveStats = document.getElementById("live-stats").style.visibility = 'hidden'
+        endGame();
+        /* endGame(); */
+        //local storage
     });
 
     wrong14.addEventListener("click", function(e) {
         userAnswerWrong();
-      questionFive = document.getElementById("question-five").style.visibility = 'hidden'
-      stats = document.getElementById("stats").style.visibility = 'visible'
-      liveStats = document.getElementById("live-stats").style.visibility = 'hidden'
+        endGame();
+        /* endGame(); */
     });
 
     wrong15.addEventListener("click", function(e) {
         userAnswerWrong();
-      questionFive = document.getElementById("question-five").style.visibility = 'hidden'
-      stats = document.getElementById("stats").style.visibility = 'visible'
-      liveStats = document.getElementById("live-stats").style.visibility = 'hidden'
+        endGame();
+        /* endGame(); */
     });
 
     
@@ -278,9 +292,12 @@ function userAnswerWrong () {
 //------------------Question One--------------------------//
 
 function questionDisplay() {
+  alert("You will have 30 seconds to answer 5 questions, \nEvery question you answer wrong, you love 5 seconds \n \n        Click okay when you are ready to start!")
+
+
   intro.style.visibility = 'hidden'
   startBtn.style.visibility = 'hidden' // hide start button so time cant be reset
-  liveStats = document.getElementById("live-stats").style.visibility = 'visible'
+  displayClock = document.getElementById("live-stats").style.visibility = 'visible'
   
   questionOne = document.getElementById("question-one").style.visibility = 'visible'
 
@@ -316,30 +333,21 @@ function questionDisplay() {
 
 
 
-
-
-
-
-
-
-
-
-
-//Timer function starts after user presses "start" button
 function countDown() {
-  alert("You will have 45 seconds to complete the quiz, \n press okay when you are ready")
-    timeLeft = 44;
-  var timeInterval = setInterval(function () {
+  timeLeft = 29;
+  setInterval(function () {
 
-    if (timeLeft > 0) {
-      timerEl.textContent = timeLeft;
-      timeLeft--;
-    } else {
-      timerEl.textContent = '';
-      clearInterval(timeInterval);
-    }
-  }, 1000);
+
+    timerEl.textContent = timeLeft;
+    timeLeft--;
+
+
+}, 1000);
+
 };
+
+
+
 
 
 

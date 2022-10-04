@@ -2,7 +2,7 @@
 
 ## A Timed quiz to test your speed in answering questions about the United States
 
-## [Password-Generator] ( https://ajmanzione.github.io/Password-Generator/)
+## [Timed Quiz] (https://ajmanzione.github.io/Timed-Quiz/)
 
 ## Randomly generates a password depending on what options you choose!
 
@@ -36,4 +36,4 @@
 Anthony Manzione - [@Instagram Handle](https://www.instagram.com/anthony.manzione/) - 
 [@Linkedin](https://www.linkedin.com/in/anthony-manzione-862b44250/)
 
-Project Link: []
+Project Link: [https://ajmanzione.github.io/Timed-Quiz/]

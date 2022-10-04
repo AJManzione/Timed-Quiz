@@ -1,3 +1,5 @@
+//Elements on the page to be hidden until other action is taken
+
 var questionOne = document.getElementById("question-one").style.visibility = 'hidden'
 var questionTwo = document.getElementById("question-two").style.visibility = 'hidden'
 var questionThree = document.getElementById("question-three").style.visibility = 'hidden'
@@ -11,13 +13,16 @@ var timerEl = document.getElementById("time");
 var startBtn = document.getElementById("start");
 
 
+// User right and wrong count to be updated after they finish the quiz
 var rCount = 0;
 var wCount = 0;
  
+// When they press start quiz, clock starts and question one is displayed
 startBtn.addEventListener("click", questionDisplay);
 startBtn.addEventListener("click", countDown);
 
 
+// Linking the answers for all questions to have value once they choose an answer
 var right1 = document.querySelector(".right-1");
 var right2 = document.querySelector(".right-2");
 var right3 = document.querySelector(".right-3");
@@ -42,7 +47,7 @@ var rightDisplay = document.querySelector("#right-display");
 var wrongDisplay = document.querySelector("#wrong-display");
 
 
-
+// variables to link with forms, and display elements related to it
 var signUpButton = document.querySelector("#sign-up")
 var userInput = document.querySelector("#email");
 var msgDiv = document.querySelector("#msg");
@@ -51,8 +56,7 @@ var userCorrect = document.querySelector("#user-correct");
 var userIncorrect = document.querySelector("#user-incorrect");
 
 
-console.log(window);
-
+// displays user score and initials
 renderLastRegistered();
 function displayMessage(type, message) {
   msgDiv.textContent = message;
@@ -61,6 +65,7 @@ function displayMessage(type, message) {
 }
 
 
+// stores to local sorage
 function renderLastRegistered() {
   var initials = localStorage.getItem("initials");
   var correct = localStorage.getItem("correct")
@@ -86,11 +91,11 @@ function renderLastRegistered() {
 
 
 
-
+// after user types in their initials and if they dont, they get an error message, if they do, user initials and score gets displayed, and form gets hidden.
 signUpButton.addEventListener("click", function(event) {
   event.preventDefault();
 
-  var initials = document.querySelector("#email").value;
+  var initials = document.querySelector("#initials").value;
 
   if (initials === "") {
     displayMessage("error", "Initials cannot be blank");
@@ -100,7 +105,7 @@ signUpButton.addEventListener("click", function(event) {
      userEmailSpan.textContent = initials;
      userCorrect.textContent = rCount;
      userIncorrect.textContent = wCount;
-     localStorage.setItem("email", initials);
+     localStorage.setItem("initials", initials);
      localStorage.setItem("correct", correct)
      localStorage.setItem("incorrect", incorrect)
     
@@ -118,10 +123,12 @@ signUpButton.addEventListener("click", function(event) {
 
 // updates the global variable of user score ---------------------
 
+// answers right gets updates
 function userAnswerRight () { 
     rCount = rCount + 1; 
   };
 
+  // answers wrond gets updated
 function userAnswerWrong () {
     wCount = wCount + 1;
     timeLeft = timeLeft - 5;
@@ -129,7 +136,7 @@ function userAnswerWrong () {
 
 
 
-
+// When last question is answered, the ability to save stats is displayed, and last question is hidden
 function endGame() {
   stats = document.getElementById("stats").style.visibility = 'visible'
   questionFive = document.getElementById("question-five").style.visibility = 'hidden'
@@ -320,7 +327,7 @@ function questionDisplay() {
 
 
 
-
+// Timer starts
 function countDown() {
   timeLeft = 29;
   setInterval(function () {
